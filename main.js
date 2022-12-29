@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const mqtt = require('mqtt');
-const reqFilter = require('./src/filters/requestFilter.js')
 const MqttHandler = require('./src/MqttHandler')
 const client = new MqttHandler().getClient() 
 
@@ -20,7 +19,3 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, 
         process.exit(1);
     }
 });
-
-client.on('message', async (topic, payload,packet)=> {
-    reqFilter(topic,payload)    
-})
