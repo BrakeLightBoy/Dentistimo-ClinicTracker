@@ -4,7 +4,7 @@ const Clinic = require('../models/clinic')
 const getAllClinics = async () => {
     const clinics = await Clinic.find();
     
-    if(clinics){     
+    if(clinics.length > 0){     
         return clinics;
 
     } else {
