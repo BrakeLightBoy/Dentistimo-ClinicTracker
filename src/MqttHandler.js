@@ -1,5 +1,6 @@
 const clinicService = require('./services/clinic')
 
+    //singleton mqtt client that publishes clinic info
 class MqttHandler{
     constructor() {
         const mqtt = require('mqtt');

@@ -9,6 +9,7 @@ const dbName = 'dentistDB';
 
 const mongoURI = process.env.MONGODB_URI || `mongodb://${mongoHost}:${mongoPort}/${dbName}`;
 
+//connect to mongoDB
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, error => {
     if (error) {
         console.error(`Failed to connect to MongoDB with URI: ${mongoURI}`);
