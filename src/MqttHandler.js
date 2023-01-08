@@ -17,16 +17,12 @@ class MqttHandler{
 
         
         client.on('connect', () => {
-            console.log(`Connected to MQTT broker with URI: ${brokerURI}`);
 
             client.subscribe('common/#',{qos:2})
 
             clinicService.getAllClinics().then(res => {
-                console.log('publish',JSON.stringify(res))
                 client.publish('clinics',JSON.stringify(res),{qos:2, retain:true})
             }).catch(e => {
-                console.log('Failed to get clinics')
-                console.log(e)              
             })
         })
 

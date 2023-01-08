@@ -11,11 +11,8 @@ const mongoURI = process.env.MONGODB_URI || `mongodb://${mongoHost}:${mongoPort}
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, error => {
     if (!error) {
-        console.log(`Connected to MongoDB with URI: ${mongoURI}`);
-    }
-    else{
-        console.error(`Failed to connect to MongoDB with URI: ${mongoURI}`);
-        console.error(error.stack);
-        process.exit(1);
+    console.error(`Failed to connect to MongoDB with URI: ${mongoURI}`);
+    console.error(error.stack);
+    process.exit(1);
     }
 });
